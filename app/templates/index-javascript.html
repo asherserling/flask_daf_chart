@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Daf Tracker</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+	<header>
+		<div id="top-color"></div>
+		<nav class="navbar navbar-expand">
+			<div class="container navbar-container abs">
+				<a href="#" class="navbar-brand">Progress</a>
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Masechtos
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <!-- Filled in by javascript !-->
+		        </div>
+	      	</li>
+				</ul>
+
+				<a class="settings-button float-left" href="#">
+					Settings
+				</a>
+
+			</div>
+		</nav>
+	</header>
+
+	<div class="container content-container">
+		<div class="main-content">
+			<h1 class="summary__header">Summary</h1>
+			<div class="summary">
+				<p class="summary__pledge">Total Pledge: 1000</p>
+				<p class="summary__completed">Completed: 500</p>
+				<p class="summary__remaining">Remaining: 500</p>
+				<p class="summary__average">Daily Average: 3.5</p>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="{{ url_for('static', filename='js/ajax-utils.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
