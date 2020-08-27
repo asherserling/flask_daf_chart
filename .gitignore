@@ -1,3 +1,8 @@
 .flaskenv
 config.py
 venv
+app/script.py
+__pycache__/script.cpython-38.pyc
+__pycache__/shell.cpython-38.pyc
+script.py
+shell.py
