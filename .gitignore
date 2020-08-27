@@ -6,3 +6,5 @@ __pycache__/script.cpython-38.pyc
 __pycache__/shell.cpython-38.pyc
 script.py
 shell.py
+.ida
+app/template/base.html
