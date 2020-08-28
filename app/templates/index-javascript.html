@@ -28,6 +28,10 @@
 					Settings
 				</a>
 
+				<a class="settings-button float-left" href="/logout">
+					Logout
+				</a>
+
 			</div>
 		</nav>
 	</header>
@@ -36,10 +40,10 @@
 		<div class="main-content">
 			<h1 class="summary__header">Summary</h1>
 			<div class="summary">
-				<p class="summary__pledge">Total Pledge: {{ summary.get('pledge') }}</p>
-				<p class="summary__completed">Completed: {{ summary.get('completed') }}</p>
-				<p class="summary__remaining">Remaining: {{ summary.get('remaining') }}</p>
-				<p class="summary__average">Daily Average: {{ summary.get('average') }}</p>
+				<p class="summary__item">Total Pledge: {{ summary.get('pledge') }}</p>
+				<p class="summary__item">Completed: {{ summary.get('completed') }}</p>
+				<p class="summary__item">Remaining: {{ summary.get('remaining') }}</p>
+				<p class="summary__item">Daily Average: {{ summary.get('average') }}</p>
 			</div>
 		</div>
 	</div>
