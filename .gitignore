@@ -1,10 +1,12 @@
-.flaskenv
+e.flaskenv
 config.py
 venv
 app/script.py
-__pycache__/script.cpython-38.pyc
-__pycache__/shell.cpython-38.pyc
+__pycache__/
 script.py
 shell.py
-.ida
+.idea
 app/template/base.html
+app/__pycache__/
+app.db
+settings.json

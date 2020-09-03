@@ -1,54 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Daf Tracker</title>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
-<body>
-	<header>
-		<div id="top-color"></div>
-		<nav class="navbar navbar-expand">
-			<div class="container navbar-container abs">
-
-			</div>
-		</nav>
-	</header>
-
-	<div class="container content-container">
-		<div class="main-content">
-			<h1 class="sign-in-heading">SIGN IN</h1>
-			<div class="sign-in-form">
-				<form action="" method="post" novalidate>
-					{{ form.hidden_tag() }}
-					<p>
-						{{ form.username.label }}<br>
-						{{ form.username(size=32) }}<br>
-						{% for error in form.username.errors %}
-							<span style="color: red;">{{ error }}</span>
-						{% endfor %}
-					</p>
-					<p>
-						{{ form.password.label }}<br>
-						{{form.password(size=32) }}<br>
-						{% for error in form.password.errors %}
-							<span style="color: red;">{{ error }}</span>
-						{% endfor %}
-					</p>
-					<p>{{ form.remember_me() }}<br>{{ form.remember_me.label }}</p>
-					<p>{{ form.submit() }}</p>
-				</form>
-			</div>
+{% extends "base.html" %}
+{% block navbar %}
+	<a href="/register" class="register-button float-left navbar-link">Register</a>
+{% endblock %}
+{% block main_content %}
+	<h1 class="sign-in-heading">SIGN IN</h1>
+		<div class="sign-in-form">
+			<form action="" method="post" novalidate>
+				{{ form.hidden_tag() }}
+				<p>
+					{{ form.username.label }}<br>
+					{{ form.username(size=32) }}<br>
+					{% for error in form.username.errors %}
+						<span class="form-error">{{ error }}</span>
+					{% endfor %}
+				</p>
+				<p>
+					{{ form.password.label }}<br>
+					{{form.password(size=32) }}<br>
+					{% for error in form.password.errors %}
+						<span class="form-error">{{ error }}</span>
+					{% endfor %}
+				</p>
+				<p>{{ form.remember_me.label }}<br>{{ form.remember_me() }}</p>
+				<p>{{ form.submit() }}</p>
+			</form>
 		</div>
-	</div>
-
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="{{ url_for('static', filename='js/ajax-utils.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
-</html> 
+{% endblock %}

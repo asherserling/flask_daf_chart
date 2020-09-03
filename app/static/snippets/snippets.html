@@ -1,0 +1,23 @@
+<!-- Uses 'at' symbol for splitting -->
+<!-- Plege Summary, Index 0 -->
+<h1 class="summary__header">Summary</h1>
+	<div class="summary">
+		<p class="summary__item">Total Pledge: {{pledge}}</p>
+		<p class="summary__item">Completed: {{completed}}</p>
+		<p class="summary__item">Remaining: {{remaining}}</p>
+		<p class="summary__item">Daily Average: {{average}}</p>
+	</div>
+@
+<!-- Masechta Summary, Index 1 -->
+<h1 class="text-center">{{name}}</h1>			
+<div class="masechta-progress">	
+	<p class="masechta-progress_length">Masechta Length:<br> {{length}}</p>
+</div>
+@
+<!-- Masechta Card, Index 2 -->
+<div class="rep-card">
+	<h3 class="rep-card__title">{{nth}} Round</h3>
+	<p class="rep-card__progress round{{number}}">{{daf}}</p>
+	<a href ="javascript:void(0)" class="rep-card__button" onclick="completeAmud('{{number}}');">Complete</a>
+</div>
+

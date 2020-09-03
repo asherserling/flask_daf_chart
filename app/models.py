@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, current_user
 from datetime import datetime
 
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -21,6 +22,8 @@ class User(UserMixin, db.Model):
 
     def get_user_data(self) -> dict:
         progress_summary = self.progress_summary.first()
+        if progress_summary is None:
+            return {}
         pledge = progress_summary.pledge
         completed = progress_summary.completed
         remaining = pledge - completed
@@ -52,6 +55,7 @@ class User(UserMixin, db.Model):
 def load_user(id):
     return User.query.get(int(id))
 
+
 class PledgeSummary(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     start_date = db.Column(db.String(120))
@@ -60,7 +64,6 @@ class PledgeSummary(db.Model):
     completed = db.Column(db.Integer)
     average = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
 
     def set_average(self):
         start_date = datetime.fromisoformat(self.start_date)
