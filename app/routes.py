@@ -5,10 +5,17 @@ from flask import render_template, url_for, request, redirect
 from flask_login import current_user, login_user, login_required, logout_user
 import json
 
+routes = {
+    "index": '/index',
+    "login": '/login',
+    "logout": '/logout',
+    "register": '/register',
+    "data": '/data',
+}
 
 
 @app.route('/')
-@app.route('/index')
+@app.route(routes['index'])
 @login_required
 def index():
     data = current_user.get_user_data()
@@ -27,7 +34,8 @@ def data():
         update_amud_data(json.loads(amud_data))
         return ""
 
-@app.route('/login', methods=['GET', 'POST'])
+
+@app.route(routes['login'], methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
@@ -40,12 +48,14 @@ def login():
         return redirect(url_for('index'))
     return render_template('login.html', form=form)
 
-@app.route('/logout')
+
+@app.route(routes['logout'])
 def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@app.route('/register', methods=['GET', 'POST'])
+
+@app.route(routes['register'], methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
@@ -56,6 +66,7 @@ def register():
         login_user(new_user, remember=form.remember_me.data)
         return redirect(url_for('index'))
     return render_template('register.html', form=form)
+
 
 def create_new_user(form):
     new_user = User(
