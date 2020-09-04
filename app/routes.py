@@ -62,7 +62,6 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         new_user = create_new_user(form)
-        print(new_user.id)
         login_user(new_user, remember=form.remember_me.data)
         return redirect(url_for('index'))
     return render_template('register.html', form=form)
